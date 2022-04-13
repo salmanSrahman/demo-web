@@ -48,7 +48,7 @@ const Login = () => {
               <div className="login-form">
                 <Form>
                   <Form.Group
-                    className="mb-3 form-inner"
+                    className="mb-4 form-inner"
                     controlId="formBasicEmail"
                   >
                     <Form.Label className="form-icon">
@@ -61,9 +61,8 @@ const Login = () => {
                       placeholder="Enter Your Email Address"
                     />
                   </Form.Group>
-
                   <Form.Group
-                    className="mb-3 form-inner"
+                    className="mb-4 form-inner"
                     controlId="formBasicPassword"
                   >
                     <Form.Label className="form-icon">
@@ -74,12 +73,10 @@ const Login = () => {
                       placeholder="Enter Your Secret Password"
                     />
                   </Form.Group>
-
                   <div className="d-flex justify-content-between">
                     <Link to="/home"> Forget Password?</Link>
                     <Link to="/home">New User?</Link>
                   </div>
-
                   <Button
                     variant="primary"
                     type="submit"

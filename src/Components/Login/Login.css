@@ -3,6 +3,7 @@
       padding: 16px;
       border-radius: 16px;
       cursor: pointer;
+      margin-bottom: 10px;
 }
 
 .social {
@@ -62,7 +63,7 @@
 }
 
 .login-form input {
-      padding: 20px 60px;
+      padding: 20px 65px;
       border: 1px solid #21263b7c;
       border-radius: 15px;
 
