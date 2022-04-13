@@ -1,0 +1,67 @@
+.social-sign {
+      background-color: rgb(239, 239, 239);
+      padding: 16px;
+      border-radius: 16px;
+      cursor: pointer;
+}
+
+.social {
+      font-size: 16px;
+}
+
+.sign1 {
+      border: 1px solid #f02290;
+}
+
+.sign2 {
+      border: 1px solid #0D6EFD;
+}
+
+.sign3 {
+      border: 1px solid black;
+}
+
+.sign1:hover {
+      background: rgba(240, 34, 144, .1);
+}
+
+.sign2:hover {
+      background: rgba(11, 134, 238, .1);
+}
+
+.sign3:hover {
+      background: rgba(33, 38, 59, .1);
+}
+
+.or-style {
+      position: relative;
+}
+
+.or-style::after {
+      position: absolute;
+      content: '';
+      left: 0;
+      bottom: 55%;
+      width: 45%;
+      height: 2px;
+      background: #21263b7c;
+}
+
+.or-style::before {
+      position: absolute;
+      content: '';
+      right: 0;
+      bottom: 55%;
+      width: 45%;
+      height: 2px;
+      background: #21263b7c;
+}
+
+.or-style p {
+      color: #21263b7c;
+}
+
+.login-form input {
+      padding: 10px 0;
+      border-radius: 10px;
+}

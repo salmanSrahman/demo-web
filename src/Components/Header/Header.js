@@ -1,53 +1,52 @@
 import React from "react";
-import Navbar from "react-bootstrap/Navbar";
-import { Button, Container, Nav } from "react-bootstrap";
-import CustomLink from "../CustomLink/CustomLink";
-import { Link } from "react-router-dom";
-import "./Header.css";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { getAuth, signOut } from "firebase/auth";
-import app from "../../firebase.Config";
-
-const auth = getAuth(app);
+import {
+  Button,
+  Container,
+  Form,
+  FormControl,
+  Nav,
+  Navbar,
+  NavDropdown,
+} from "react-bootstrap";
 
 const Header = () => {
-  const [user] = useAuthState(auth);
-  const handleSignOut = () => {
-    signOut(auth).then(() => {});
-  };
-
   return (
     <div>
-      <Navbar bg="dark" expand="lg">
+      <Navbar bg="light" expand="lg">
         <Container>
-          <Navbar.Brand className="text-danger fw-bold" as={Link} to="/home">
-            Private Route
-          </Navbar.Brand>
+          <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
-              className="ms-auto my-2 my-lg-0 nav-menu"
+              className="me-auto my-2 my-lg-0"
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <CustomLink to="/home">Home</CustomLink>
-              <CustomLink to="/products">Products</CustomLink>
-              <CustomLink to="/order">Order</CustomLink>
-              <CustomLink to="/register">Register</CustomLink>
-              <span className="text-light">{user && user.displayName}</span>
-              {user?.uid ? (
-                <Button
-                  variant="danger"
-                  className="ms-2 lh-5"
-                  size="sm"
-                  onClick={handleSignOut}
-                >
-                  Sign Out
-                </Button>
-              ) : (
-                <CustomLink to="/login">Login</CustomLink>
-              )}
+              <Nav.Link href="#action1">Home</Nav.Link>
+              <Nav.Link href="#action2">Link</Nav.Link>
+              <NavDropdown title="Link" id="navbarScrollingDropdown">
+                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+                <NavDropdown.Item href="#action4">
+                  Another action
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#action5">
+                  Something else here
+                </NavDropdown.Item>
+              </NavDropdown>
+              <Nav.Link href="#" disabled>
+                Link
+              </Nav.Link>
             </Nav>
+            <Form className="d-flex">
+              <FormControl
+                type="search"
+                placeholder="Search"
+                className="me-2"
+                aria-label="Search"
+              />
+              <Button variant="outline-success">Search</Button>
+            </Form>
           </Navbar.Collapse>
         </Container>
       </Navbar>
