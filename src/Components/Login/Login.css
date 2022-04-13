@@ -43,7 +43,7 @@
       left: 0;
       bottom: 55%;
       width: 45%;
-      height: 2px;
+      height: 1px;
       background: #21263b7c;
 }
 
@@ -53,7 +53,7 @@
       right: 0;
       bottom: 55%;
       width: 45%;
-      height: 2px;
+      height: 1px;
       background: #21263b7c;
 }
 
@@ -62,6 +62,35 @@
 }
 
 .login-form input {
-      padding: 10px 0;
-      border-radius: 10px;
+      padding: 20px 60px;
+      border: 1px solid #21263b7c;
+      border-radius: 15px;
+
+
+}
+
+
+
+.form-control:focus {
+      color: #212529;
+      background-color: #fff;
+      border-color: #86b7fe;
+      outline: 0;
+      box-shadow: none !important;
+}
+
+.form-inner {
+      position: relative;
+}
+
+.form-icon {
+      position: absolute;
+      left: 10px;
+      top: 15px;
+
+
+}
+
+@media only screen and (max-width: 700px) {
+      
 }
