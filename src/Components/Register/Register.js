@@ -101,7 +101,7 @@ const Login = () => {
                   </Form.Group>
                   <div className="d-flex justify-content-between">
                     <Link to="/home"></Link>
-                    <Link to="/home">Already Have An Account?</Link>
+                    <Link to="/login">Already Have An Account?</Link>
                   </div>
                   <Button
                     variant="primary"

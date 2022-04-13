@@ -3,3 +3,9 @@
       text-transform: uppercase;
       padding: 0 20px;
 }
+
+.nav-menu {
+      background: #f6f6f6;
+      padding: 20px;
+      border-radius: 10px;
+}

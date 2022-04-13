@@ -6,6 +6,7 @@ import Shop from "./Components/Shop/Shop";
 import Products from "./Components/Products/Products";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import Login from "./Components/Login/Login";
+import Register from "./Components/Register/Register";
 import NotFound from "./Components/NotFound/NotFound";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="products" element={<Products />}></Route>
         <Route path="dashboard" element={<Dashboard />}></Route>
         <Route path="login" element={<Login />}></Route>
+        <Route path="register" element={<Register />}></Route>
         <Route path="notfound" element={<NotFound />}></Route>
       </Routes>
     </div>

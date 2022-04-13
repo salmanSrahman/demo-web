@@ -75,7 +75,7 @@ const Login = () => {
                   </Form.Group>
                   <div className="d-flex justify-content-between">
                     <Link to="/home"> Forget Password?</Link>
-                    <Link to="/home">New User?</Link>
+                    <Link to="/register">New User?</Link>
                   </div>
                   <Button
                     variant="primary"
