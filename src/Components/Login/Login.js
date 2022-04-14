@@ -8,14 +8,37 @@ import { ImGithub } from "react-icons/im";
 import { MdOutlineMarkEmailUnread } from "react-icons/md";
 import { BiLockOpenAlt } from "react-icons/bi";
 import { BsArrowRight } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../Firebase.config";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import {
+  useSignInWithGoogle,
+  useSignInWithFacebook,
+  useSignInWithGithub,
+} from "react-firebase-hooks/auth";
 
 const Login = () => {
   const [signInWithGoogle] = useSignInWithGoogle(auth);
+  const [signInWithFacebook] = useSignInWithFacebook(auth);
+  const [signInWithGithub] = useSignInWithGithub(auth);
   let navigate = useNavigate();
   let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+
+  const handleGoogleSign = () => {
+    signInWithGoogle().then(() => {
+      navigate(from, { replace: true });
+    });
+  };
+  const handleFbSign = () => {
+    signInWithFacebook().then(() => {
+      navigate(from, { replace: true });
+    });
+  };
+  const handleGithubSign = () => {
+    signInWithGithub().then(() => {
+      navigate(from, { replace: true });
+    });
+  };
 
   return (
     <div>
@@ -27,22 +50,19 @@ const Login = () => {
             </div>
             <Row className="g-3">
               <Col xs={12} xl={4} className="g-4">
-                <div
-                  className="social-sign sign1"
-                  onClick={() => signInWithGoogle()}
-                >
+                <div className="social-sign sign1" onClick={handleGoogleSign}>
                   <FcGoogle className="fs-2" />
                   <h5 className="d-inline-block ms-3 fw-bold">Google</h5>
                 </div>
               </Col>
               <Col xs={12} xl={4} className="g-4">
-                <div className="social-sign sign2">
+                <div className="social-sign sign2" onClick={handleFbSign}>
                   <SiFacebook className="fs-2 text-primary" />
                   <h5 className="d-inline-block ms-3 fw-bold">Facebook</h5>
                 </div>
               </Col>
               <Col xs={12} xl={4} className="g-4">
-                <div className="social-sign sign3">
+                <div className="social-sign sign3" onClick={handleGithubSign}>
                   <ImGithub className="fs-2" />
                   <h5 className="d-inline-block ms-3 fw-bold">Github</h5>
                 </div>

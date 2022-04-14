@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import CustomLink from "../CustomLink/CustomLink";
 import "./Header.css";
 import { BsFillPersonCheckFill } from "react-icons/bs";
+import { FaUserPlus } from "react-icons/fa";
+import { FaUserMinus } from "react-icons/fa";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../Firebase.config";
 import { signOut } from "firebase/auth";
@@ -32,15 +34,27 @@ const Header = () => {
               <CustomLink to="/notfound">Dashboard</CustomLink>
               <CustomLink to="/dashboard">Dashboard</CustomLink>
             </Nav>
-            <span className="fw-bold">{user?.email && user.displayName}</span>
-            {!(user?.email) ? (
+            <span className="fw-bold">
+              {user?.email && (
+                <Button
+                  variant="outline-primary"
+                  as={Link}
+                  to="/login"
+                  className="ms-3 fw-bold"
+                >
+                  <BsFillPersonCheckFill className="me-1" />
+                  {user.displayName}
+                </Button>
+              )}
+            </span>
+            {!user?.email ? (
               <Button
                 variant="outline-primary"
                 as={Link}
                 to="/login"
                 className="ms-3 fw-bold"
               >
-                <BsFillPersonCheckFill className="me-1" />
+                <FaUserPlus className="me-1 fw-bold" />
                 Login
               </Button>
             ) : (
@@ -51,7 +65,7 @@ const Header = () => {
                 to="/home"
                 onClick={handleLogOut}
               >
-                <BsFillPersonCheckFill className="me-1" />
+                <FaUserMinus className="me-1" />
                 Logout
               </Button>
             )}
