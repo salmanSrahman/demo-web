@@ -14,6 +14,8 @@ import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 
 const Login = () => {
   const [signInWithGoogle] = useSignInWithGoogle(auth);
+  let navigate = useNavigate();
+  let location = useLocation();
 
   return (
     <div>
