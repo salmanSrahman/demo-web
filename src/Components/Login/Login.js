@@ -9,8 +9,12 @@ import { MdOutlineMarkEmailUnread } from "react-icons/md";
 import { BiLockOpenAlt } from "react-icons/bi";
 import { BsArrowRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import auth from "../../Firebase.config";
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 
 const Login = () => {
+  const [signInWithGoogle] = useSignInWithGoogle(auth);
+
   return (
     <div>
       <Container>
@@ -21,7 +25,10 @@ const Login = () => {
             </div>
             <Row className="g-3">
               <Col xs={12} xl={4} className="g-4">
-                <div className="social-sign sign1">
+                <div
+                  className="social-sign sign1"
+                  onClick={() => signInWithGoogle()}
+                >
                   <FcGoogle className="fs-2" />
                   <h5 className="d-inline-block ms-3 fw-bold">Google</h5>
                 </div>

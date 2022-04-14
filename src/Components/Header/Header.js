@@ -4,8 +4,15 @@ import { Link } from "react-router-dom";
 import CustomLink from "../CustomLink/CustomLink";
 import "./Header.css";
 import { BsFillPersonCheckFill } from "react-icons/bs";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../Firebase.config";
+import { signOut } from "firebase/auth";
 
 const Header = () => {
+  const [user] = useAuthState(auth);
+  const handleLogOut = () => {
+    signOut(auth).then(() => {});
+  };
   return (
     <div>
       <Navbar expand="lg">
@@ -14,7 +21,7 @@ const Header = () => {
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
-              className="ms-auto my-2 my-lg-0 nav-menu"
+              className="ms-auto me-2 my-2 my-lg-0 nav-menu"
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
@@ -25,15 +32,29 @@ const Header = () => {
               <CustomLink to="/notfound">Dashboard</CustomLink>
               <CustomLink to="/dashboard">Dashboard</CustomLink>
             </Nav>
-            <Button
-              variant="outline-primary"
-              as={Link}
-              to="/login"
-              className="ms-3"
-            >
-              <BsFillPersonCheckFill className="me-1" />
-              Login
-            </Button>
+            <span className="fw-bold">{user?.email && user.displayName}</span>
+            {!(user?.email) ? (
+              <Button
+                variant="outline-primary"
+                as={Link}
+                to="/login"
+                className="ms-3 fw-bold"
+              >
+                <BsFillPersonCheckFill className="me-1" />
+                Login
+              </Button>
+            ) : (
+              <Button
+                variant="outline-danger"
+                className="ms-3 fw-bold"
+                as={Link}
+                to="/home"
+                onClick={handleLogOut}
+              >
+                <BsFillPersonCheckFill className="me-1" />
+                Logout
+              </Button>
+            )}
           </Navbar.Collapse>
         </Container>
       </Navbar>
