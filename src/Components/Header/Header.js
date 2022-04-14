@@ -36,12 +36,7 @@ const Header = () => {
             </Nav>
             <span className="fw-bold">
               {user?.email && (
-                <Button
-                  variant="outline-primary"
-                  as={Link}
-                  to="/login"
-                  className="ms-3 fw-bold"
-                >
+                <Button variant="outline-primary" className="ms-3 fw-bold">
                   <BsFillPersonCheckFill className="me-1" />
                   {user.displayName}
                 </Button>
